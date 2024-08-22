@@ -1,19 +1,25 @@
 <template>
-    <div class="flex gap-0">
+    <div class="flex">
         <div class="min-w-0.5 min-h-10 bg-gray-200 ml-8"></div>
         <div class="flex ml-8 gap-4 bg-white rounded-lg p-4 self-end my-2">
             <div class="flex flex-col justify-between gap-2 h-2/3 text-center bg-secondary text-primary p-2 rounded-md font-bold">
                 <p>+</p>
-                <p>12</p>
+                <p>{{ reply.score }}</p>
                 <p>-</p>
             </div>
             <div>
                 <div class="flex flex-col whitespace-normal">
                     <div class="flex justify-between">
                         <div class="flex items-center gap-4">
-                            <img class="h-10 w-10"
+                            <img v-show="reply.user.username === 'amyrobson'" class="h-10 w-10"
                             src="..\assets\images\avatars\image-amyrobson.png" alt="">
-                            <p class="font-bold">amyrobson <span class="pl-4 text-gray-400">1 month ago</span></p>
+                            <img v-show="reply.user.username === 'maxblagun'" class="h-10 w-10"
+                            src="..\assets\images\avatars\image-maxblagun.png" alt="">
+                            <img v-show="reply.user.username === 'ramsesmiron'" class="h-10 w-10"
+                            src="..\assets\images\avatars\image-ramsesmiron.png" alt="">
+                            <img v-show="reply.user.username === 'juliusomo'" class="h-10 w-10"
+                            src="..\assets\images\avatars\image-juliusomo.png" alt="">
+                            <p class="font-bold">{{ reply.user.username }} <span class="pl-4 text-gray-400">{{reply.createdAt}}</span></p>
                         </div>
                         <div class="flex gap-1 items-center">
                             <svg
@@ -23,7 +29,12 @@
                             <button class="text-primary font-bold">Reply</button>
                         </div>
                     </div>
-                            <p class="py-4">Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.</p>
+                            <p class="py-4">
+                                <span class="font-bold text-primary">
+                                    @{{ username }}
+                                </span>
+                                    {{reply.content}}
+                            </p>
         
         
                 </div>
@@ -35,5 +46,15 @@
 
 <script setup>
 
+defineProps({
+    reply: {
+        type: Object,
+        default: () => {}
+    },
+    username: {
+        type: String,
+        default: () => {}
+    }
+})
 </script>
 
