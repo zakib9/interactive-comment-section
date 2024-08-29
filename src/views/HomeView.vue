@@ -19,7 +19,6 @@ import { ref } from 'vue';
         "image": usersData.currentUser.image,
         "username": usersData.currentUser.username
       })
-      //console.log(usersArray.value)
       for (let index = 0; index < usersData.comments.length; index++) {
         commentsArray.value.push({
             "id" : index,
@@ -35,7 +34,6 @@ import { ref } from 'vue';
   usersDataFetch()
 
   function onSend(comment){
-    
     commentsArray.value.push({
         "id" : commentsArray.value.length,
         "replies": [],
@@ -43,24 +41,20 @@ import { ref } from 'vue';
         "score": 0,
         "content": comment,
         "user": usersData.currentUser
-      
     })
     
   }
   function onDelete(id){
-   
     commentId.value = id
     replyId.value = null
     deletePopUp.value = true
   }
   function OnDelete(id){
-    
     replyId.value = id[0]
     commentId.value = id[1] 
     deletePopUp.value = true
   }
   function OnReply(operation){
-      
       if (operation[1]) {
         for (let index = 0; index < commentsArray.value.length; index++) 
       {
@@ -78,16 +72,13 @@ import { ref } from 'vue';
       }
   }
   function onUpdate(comment){
-      
       for (let index = 0; index < commentsArray.value.length; index++)
       {
         if(commentsArray.value[index].id == comment[2])
         commentsArray.value[index].content = comment[1]
       }
-
     }
     function OnUpdate(updatedReply){
-      
       for (let index = 0; index < commentsArray.value.length; index++) 
       for (let i = 0; i < commentsArray.value[index].replies.length; i++){
         if(commentsArray.value[index].id == updatedReply[3])
@@ -112,18 +103,15 @@ import { ref } from 'vue';
     }
   }
   function onReplyScoreIncrementation(id){
-     
     for (let index = 0; index < commentsArray.value.length; index++) 
       for (let i = 0; i < commentsArray.value[index].replies.length; i++)
          if(commentsArray.value[index].id == id[1])
          if(commentsArray.value[index].replies[i].id == id[0]){
           console.log(commentsArray.value[index].replies[i].score)
           commentsArray.value[index].replies[i].score++
-         }
-         
+         } 
   }
   function onReplyScoreDecrementation(id){
-   
     for (let index = 0; index < commentsArray.value.length; index++) 
       for (let i = 0; i < commentsArray.value[index].replies.length; i++){
         if(commentsArray.value[index].id == id[1])
@@ -132,12 +120,9 @@ import { ref } from 'vue';
           console.log(commentsArray.value[index].replies[i].score)
           commentsArray.value[index].replies[i].score--
          }
-      }
-         
-         
+      }   
     }
   function onCloseModal(accept){
-    
     if(accept)
     {
       if (replyId.value != null) {
@@ -157,12 +142,11 @@ import { ref } from 'vue';
   }
   deletePopUp.value = false
 }
-    
 </script>
 
 <template>
 <div class="w-full h-screen flex  bg-secondary justify-center items-end">
-  <div class="flex flex-col h-screen  overflow-y-scroll bg-secondary lg:w-1/2 md:w-full py-10">
+  <div class="flex flex-col h-screen  overflow-y-scroll no-scrollbar bg-secondary lg:w-1/2 md:w-full py-10">
     <div v-for="comment in commentsArray" :key="comment.id">
       <CommentSectionView  
       :comment="comment"
@@ -177,8 +161,10 @@ import { ref } from 'vue';
       @replyScoreIncrementation="onReplyScoreIncrementation"
       @replyScoreDecrementation="onReplyScoreDecrementation"/>
   </div>
-  <FormSectionView :users="usersData" @send="onSend" />
-    </div >
+      <FormSectionView 
+      :users="usersData" 
+      @send="onSend" />
+  </div >
     <DeleteModalView 
       :modalActive="deletePopUp" 
       :accept="accept"
