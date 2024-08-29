@@ -41,7 +41,9 @@ const emit = defineEmits([
     ])
 
     function send(){
-        emit("send", comment.value)
+        if (comment.value != null) {
+            emit("send", comment.value)
+        }
         comment.value = ""
     }
     function reply(id){

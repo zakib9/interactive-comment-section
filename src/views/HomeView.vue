@@ -34,7 +34,8 @@ import { ref } from 'vue';
   usersDataFetch()
 
   function onSend(comment){
-    commentsArray.value.push({
+    if (comment != "") {
+       commentsArray.value.push({
         "id" : commentsArray.value.length,
         "replies": [],
         "createdAt": "Now",
@@ -42,6 +43,8 @@ import { ref } from 'vue';
         "content": comment,
         "user": usersData.currentUser
     })
+    }
+   
     
   }
   function onDelete(id){
