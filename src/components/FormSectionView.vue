@@ -1,7 +1,7 @@
 <template>
-    <div class="flex sm:flex-col md:flex-row w-full mt-2 bg-white rounded-lg  mx-auto p-8  gap-4">
+    <div class="flex flex-col md:flex-row w-full mt-2 bg-white rounded-lg  mx-auto p-8  gap-4">
         <img 
-        class="h-10 w-10 flex sm:hidden md:flex" 
+        class="h-10 w-10 hidden md:flex" 
         src="..\assets\images\avatars\image-juliusomo.png" 
         alt="">
         
@@ -12,7 +12,7 @@
         class="block w-full rounded-lg border border-solid py-1.5 pl-4 text-gray-900 shadow-sm  ring-gray-400 placeholder:text-gray-400 focus:outline-none focus:border-indigo-600 focus:ring-indigo-600 focus:ring-1 " />
         <div class="flex justify-between">
             <img 
-            class="h-10 w-10 hidden sm:flex md:hidden" 
+            class="h-10 w-10 flex md:hidden" 
             src="..\assets\images\avatars\image-juliusomo.png" 
             alt="">
             <button
