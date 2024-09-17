@@ -18,7 +18,7 @@ This is a solution to the Interactive comment saction on Frontend Mentor. Fronte
 [ Challenge link ](https://www.frontendmentor.io/challenges/interactive-comments-section-iG1RugEG9/hub)
 
 
-[ Live application ](https://zaki-interactive-comment-section2.netlify.app/)
+[ Live application ](https://zaki-comment-section-challenge.netlify.app)
 
 # Built With
 
