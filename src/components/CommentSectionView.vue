@@ -1,8 +1,8 @@
 <template>
     <div class="flex flex-col">
-        <div class="flex sm:flex-col-reverse md:flex-row gap-4 bg-white rounded-lg p-4 mt-4 mb-2">
+        <div class="flex flex-col-reverse md:flex-row gap-4 bg-white rounded-lg p-4 mt-4 mb-2">
             <div class="flex justify-between">
-                <div class="flex flex-col mb-10 sm:mb-0 sm:gap-6 sm:flex-row md:flex-col md:gap-0 justify-between  text-center bg-secondary text-primary p-2 rounded-md font-bold md:mb-10">
+                <div class="flex  mb-0 gap-6 md:flex-col md:gap-0 justify-between  text-center bg-secondary text-primary p-2 rounded-md font-bold md:mb-10">
                     <p 
                     @click="scoreIncrementation" 
                     class="cursor-pointer">+</p>
@@ -13,7 +13,7 @@
                 </div>
                 <div 
                     v-if="comment.user.username !== 'juliusomo'" 
-                    class="hidden sm:flex gap-1 items-center md:hidden">
+                    class="flex gap-1 items-center md:hidden">
                             <svg 
                                 v-if="replyForm"
                                 width="14"
@@ -31,7 +31,7 @@
                             </div>
                             <div 
                                 v-else 
-                                class="hidden sm:flex md:hidden gap-6 items-center">
+                                class="flex md:hidden gap-6 items-center">
                                 <div class="flex gap-1 items-center">
                                     <svg 
                                     v-if="updateForm"
@@ -100,7 +100,7 @@
                                 </div>
                         </div>
                         <div 
-                            v-if="comment.user.username !== 'juliusomo'" class="flex sm:hidden gap-1 items-center md:flex">
+                            v-if="comment.user.username !== 'juliusomo'" class="hidden gap-1 items-center md:flex">
                             <svg 
                                 v-if="replyForm"
                                 width="14"
@@ -118,7 +118,7 @@
                             </div>
                             <div 
                                 v-else 
-                                class="flex sm:hidden md:flex gap-6 items-center">
+                                class="hidden md:flex gap-6 items-center">
                                 <div class="flex gap-1 items-center">
                                     <svg 
                                     v-if="updateForm"

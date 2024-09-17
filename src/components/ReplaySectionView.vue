@@ -2,9 +2,9 @@
     <div class="flex flex-col min-w-full">
         <div class="flex">
             <div class="min-w-0.5 min-h-10 bg-gray-200 ml-8"></div>
-            <div class="flex flex-1 sm:flex-col-reverse md:flex-row  ml-8 gap-4 bg-white rounded-lg p-4 self-end my-2">
+            <div class="flex flex-1 flex-col-reverse md:flex-row  ml-8 gap-4 bg-white rounded-lg p-4 self-end my-2">
                 <div class="flex justify-between">
-                    <div class="flex flex-col mb-10 sm:mb-0 sm:gap-6 sm:flex-row md:flex-col md:gap-0 justify-between md:mb-10 text-center bg-secondary text-primary p-2 rounded-md font-bold">
+                    <div class="flex mb-0 gap-6 flex-row md:flex-col md:gap-0 justify-between md:mb-10 text-center bg-secondary text-primary p-2 rounded-md font-bold">
                         <p 
                         @click="replyScoreIncrementation" 
                         class="cursor-pointer">+</p>
@@ -14,7 +14,7 @@
                     </div>
                     <div 
                     v-if="reply.user.username !== 'juliusomo'"     
-                    class=" gap-1 items-center hidden sm:flex md:hidden">
+                    class=" gap-1 items-center flex md:hidden">
                                 <svg 
                                 v-if="replyForm"
                                 width="14"
@@ -34,7 +34,7 @@
                             </div>
                             <div 
                             v-else 
-                            class="gap-6 items-center hidden sm:flex md:hidden">
+                            class="gap-6 items-center flex md:hidden">
                                 <div class="flex gap-1 items-center">
                                     <svg 
                                     v-if="updateForm"
@@ -103,7 +103,7 @@
                                 </div>
                             </div>
                             <div 
-                            v-if="reply.user.username !== 'juliusomo'"     class="flex sm:hidden md:flex gap-1 items-center">
+                            v-if="reply.user.username !== 'juliusomo'"     class="hidden md:flex gap-1 items-center">
                                 <svg 
                                 v-if="replyForm"
                                 width="14"
@@ -123,7 +123,7 @@
                             </div>
                             <div 
                             v-else 
-                            class="flex sm:hidden md:flex gap-6 items-center ">
+                            class="hidden md:flex gap-6 items-center ">
                                 <div class="flex gap-1 items-center ">
                                     <svg 
                                     v-if="updateForm"
